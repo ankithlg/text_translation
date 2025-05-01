@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/yourusername/text_translate.git'
+                git url: 'https://github.com/ankithlg/text_translation.git', credentialsId: 'github-token'
             }
         }
 
@@ -36,5 +36,3 @@ pipeline {
         }
     }
 }
-
-
