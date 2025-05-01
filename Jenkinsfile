@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/ankithlg/text_translation.git', credentialsId: 'github-token'
-            }
+                git url: 'https://github.com/ankithlg/text_translation.git', credentialsId: 'github-token'            }
         }
 
         stage('Install Dependencies') {
