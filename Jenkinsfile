@@ -4,25 +4,25 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git url: 'https://github.com/ankithlg/text_translation.git', credentialsId: 'github-token'
+                git 'https://github.com/ankithlg/text_translation.git', credentialsId: 'github-token'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install flask googletrans==4.0.0-rc1'
+                bat 'pip install flask googletrans==4.0.0-rc1'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'python -m unittest discover tests'
+                bat 'python -m unittest discover tests'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh './deploy.sh'
+                bat 'deploy.bat' // Make sure you have a deploy.bat for Windows
             }
         }
     }
